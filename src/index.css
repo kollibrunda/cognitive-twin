@@ -1,0 +1,139 @@
+/* =============================================
+   COGNITIVE TWIN — Global Styles
+   ============================================= */
+
+:root {
+  --primary:       #1a1a2e;
+  --accent:        #7c3aed;
+  --accent-light:  #ede9fe;
+  --surface:       #ffffff;
+  --surface2:      #f5f3ff;
+  --bg:            #f8f7ff;
+  --text:          #1a1a2e;
+  --muted:         #6b7280;
+  --border:        rgba(124, 58, 237, 0.15);
+  --success:       #059669;
+  --danger:        #dc2626;
+  --warning:       #d97706;
+  --radius:        14px;
+  --radius-sm:     10px;
+  --font:          'Sora', sans-serif;
+  --mono:          'Space Mono', monospace;
+  --shadow:        0 4px 24px rgba(124, 58, 237, 0.08);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  font-size: 14px;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ---------- Shared Button Styles ---------- */
+.btn-primary {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  padding: 10px 22px;
+  border-radius: var(--radius-sm);
+  font-family: var(--font);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
+}
+.btn-primary:hover {
+  background: #6d28d9;
+  transform: translateY(-1px);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--accent);
+  border: 1px solid var(--border);
+  padding: 10px 22px;
+  border-radius: var(--radius-sm);
+  font-family: var(--font);
+  font-size: 13px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.btn-outline:hover {
+  background: var(--accent-light);
+}
+
+/* ---------- Shared Card ---------- */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+  margin-bottom: 16px;
+}
+
+/* ---------- Badge ---------- */
+.badge {
+  display: inline-block;
+  font-size: 11px;
+  padding: 3px 10px;
+  border-radius: 20px;
+  background: var(--accent-light);
+  color: var(--accent);
+  font-weight: 500;
+}
+
+/* ---------- Section Title ---------- */
+.section-title {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+/* ---------- Cognitive Progress Bar ---------- */
+.cog-bar { margin-bottom: 14px; }
+.cog-bar-top {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  margin-bottom: 6px;
+}
+.cog-bar-label { font-weight: 500; }
+.cog-bar-score {
+  color: var(--accent);
+  font-family: var(--mono);
+  font-size: 12px;
+}
+.bar-track {
+  height: 8px;
+  background: #ede9fe;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.bar-fill {
+  height: 100%;
+  border-radius: 10px;
+  background: linear-gradient(90deg, #7c3aed, #a78bfa);
+  transition: width 1s ease;
+}
+
+/* ---------- Fade-in page animation ---------- */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.page-enter {
+  animation: fadeInUp 0.3s ease forwards;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 500px) {
+  .reco-grid { grid-template-columns: 1fr !important; }
+  .stat-grid  { grid-template-columns: 1fr 1fr !important; }
+}
