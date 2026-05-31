@@ -208,7 +208,7 @@ export default function Results({ onNavigate, user, onProfileUpdate }) {
           className="btn-primary"
           onClick={() => {
             if (onProfileUpdate) onProfileUpdate(latest.profile);
-            onNavigate("roadmap");
+            setTimeout(() => onNavigate("roadmap"), 100);
           }}
           style={{ fontSize: "15px", padding: "14px 28px" }}
         >
