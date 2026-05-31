@@ -77,7 +77,7 @@ export default function Quiz({ onNavigate, user, onQuizDone }) {
   async function submitToBackend(finalAnswers) {
     setLoading(true);
     try {
-      const response = await fetch("http://127.0.0.1:8000/quiz/submit", {
+      const response = await fetch("https://cognitive-twin-s56q.onrender.com/quiz/submit", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ name: name, answers: finalAnswers }),
