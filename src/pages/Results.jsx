@@ -66,7 +66,7 @@ const styles = {
   actions: { display: "flex", gap: "10px", flexWrap: "wrap", marginTop: "4px" },
 };
 
-export default function Results({ onNavigate, user }) {
+export default function Results({ onNavigate, user, onProfileUpdate }) {
   const [results, setResults] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -188,7 +188,7 @@ export default function Results({ onNavigate, user }) {
       </div>
 
       <div className="card">
-        <div className="section-title" style={{ marginBottom: "16px" }}>All Results from Database 🗄️</div>
+        <div className="section-title" style={{ marginBottom: "16px" }}>Your Test History</div>
         {results.map((r, i) => (
           <div key={r.id} style={{
             ...styles.resultRow,
@@ -206,7 +206,10 @@ export default function Results({ onNavigate, user }) {
       <div style={styles.actions}>
         <button
           className="btn-primary"
-          onClick={() => onNavigate("roadmap")}
+          onClick={() => {
+            if (onProfileUpdate) onProfileUpdate(latest.profile);
+            onNavigate("roadmap");
+          }}
           style={{ fontSize: "15px", padding: "14px 28px" }}
         >
           🗺️ See My Career Roadmap →

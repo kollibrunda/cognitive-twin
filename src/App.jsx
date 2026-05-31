@@ -50,7 +50,7 @@ export default function App() {
     switch (currentPage) {
       case "home":    return <Home    onNavigate={navigate} user={user} />;
       case "quiz":    return <Quiz    onNavigate={navigate} user={user} onQuizDone={handleQuizDone} />;
-      case "results": return <Results onNavigate={navigate} user={user} profile={userProfile} />;
+      case "results": return <Results onNavigate={navigate} user={user} profile={userProfile} onProfileUpdate={handleQuizDone} />;
       case "profile": return <Profile onNavigate={navigate} user={user} onLogout={handleLogout} />;
       case "roadmap": return <Roadmap onNavigate={navigate} profile={userProfile} />;
       default:        return <Home    onNavigate={navigate} user={user} />;
