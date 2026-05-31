@@ -71,7 +71,7 @@ export default function Results({ onNavigate, user }) {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("https://cognitive-twin-s56q.onrender.com/results")
+    fetch(`https://cognitive-twin-s56q.onrender.com/results/user/${user.name}`)
       .then((res) => res.json())
       .then((data) => {
         setResults(data.results);

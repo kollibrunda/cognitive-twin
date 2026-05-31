@@ -133,3 +133,21 @@ def get_profile(name: str):
     if row:
         return dict(row)
     return {"message": "Profile not found"}
+# ── Get results for specific user by email
+@app.get("/results/{email}")
+def get_user_results(email: str):
+    conn = get_connection()
+    cursor = conn.cursor()
+    cursor.execute("SELECT * FROM results WHERE name = ?", (email,))
+    rows = cursor.fetchall()
+    conn.close()
+    return {"results": [dict(row) for row in rows]}
+# ── Get results for specific logged in user
+@app.get("/results/user/{name}")
+def get_user_results(name: str):
+    conn = get_connection()
+    cursor = conn.cursor()
+    cursor.execute("SELECT * FROM results WHERE name = ?", (name,))
+    rows = cursor.fetchall()
+    conn.close()
+    return {"results": [dict(row) for row in rows]}
