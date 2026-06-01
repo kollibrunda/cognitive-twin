@@ -54,7 +54,7 @@ export default function App() {
       case "quiz":    return <Quiz    onNavigate={navigate} user={user} onQuizDone={handleQuizDone} />;
       case "results": return <Results onNavigate={navigate} user={user} profile={userProfile} onProfileUpdate={(p) => { setLatestProfile(p); handleQuizDone(p); }} />;
       case "profile": return <Profile onNavigate={navigate} user={user} onLogout={handleLogout} />;
-      case "roadmap": return <Roadmap onNavigate={navigate} profile={latestProfile} />;
+      case "roadmap": return <Roadmap onNavigate={navigate} user={user} />;
       default:        return <Home    onNavigate={navigate} user={user} />;
     }
   }
