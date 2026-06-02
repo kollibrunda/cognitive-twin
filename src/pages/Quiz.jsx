@@ -80,7 +80,7 @@ export default function Quiz({ onNavigate, user, onQuizDone }) {
       const response = await fetch("https://cognitive-twin-s56q.onrender.com/quiz/submit", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name: name, answers: finalAnswers }),
+        body: JSON.stringify({ name: user ? user.name : name, answers: finalAnswers }),
       });
       const data = await response.json();
       if (onQuizDone) onQuizDone(data.profile);
